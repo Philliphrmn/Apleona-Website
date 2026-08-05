@@ -1391,7 +1391,7 @@ img {
 
 .client-logos {
   overflow: hidden;
-  padding: 3.4rem 0;
+  padding: 2rem 0;
   background: var(--ap-white);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -1412,7 +1412,7 @@ img {
 }
 
 .client-logos__group img {
-  height: clamp(1.7rem, 3vw, 2.4rem);
+  height: clamp(1.3rem, 2.2vw, 1.8rem);
   width: auto;
   filter: grayscale(1) opacity(0.55);
   transition: filter 0.25s ease;
