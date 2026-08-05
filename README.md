@@ -1,10 +1,12 @@
 # Apleona Austria Website Preview
 
-Static prototype for the Apleona Austria landing page and the Umbau & Lifecycle landing page.
+Static prototype for the Apleona Austria landing page, the service overview,
+and the Umbau & Lifecycle landing page.
 
 ## Pages
 
 - `index.html`
+- `leistungen.html`
 - `umbau-lifecycle.html`
 
 ## Local Preview
