@@ -1363,7 +1363,6 @@ img {
   line-height: 1.55;
 }
 
-.services-hero__copy > a,
 .services-cta__grid > a {
   position: relative;
   display: inline-flex;
@@ -1377,6 +1376,21 @@ img {
   font-family: "Radikal W01 Regular", Arial, sans-serif;
 }
 
+.services-hero__copy > a {
+  position: relative;
+  display: inline-flex;
+  min-height: 2.35rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0.55rem 2.45rem 0.55rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: var(--ap-white);
+  font-family: "Radikal W01 Regular", Arial, sans-serif;
+  font-size: 0.82rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
 .services-hero__copy > a::after,
 .services-cta__grid > a::after {
   position: absolute;
@@ -1385,7 +1399,8 @@ img {
 }
 
 .services-hero__copy > a:hover {
-  background: var(--ap-red);
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--ap-white);
 }
 
