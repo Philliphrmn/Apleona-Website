@@ -34,6 +34,7 @@
 
 html {
   font-size: 18px;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -95,6 +96,7 @@ img {
 
 .header__logo {
   position: relative;
+  z-index: 101;
   display: inline-block;
 }
 
@@ -111,6 +113,7 @@ img {
   font-family: "Radikal W01 Light", Arial, sans-serif;
   font-size: 1.1111111111rem;
   white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .header__quicklinks {
@@ -128,6 +131,8 @@ img {
 }
 
 .header__toggle {
+  position: relative;
+  z-index: 101;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -135,6 +140,16 @@ img {
   font-family: "Radikal W01 Regular", Arial, sans-serif;
   font-size: 1.2777777778rem;
   line-height: 1.8333333333rem;
+  transition: color 0.2s ease;
+}
+
+.flyout-open .header__toggle {
+  margin-left: auto;
+  color: var(--ap-blue);
+}
+
+.flyout-open .header__logo span {
+  color: var(--ap-ink);
 }
 
 .header__icon {
@@ -203,48 +218,29 @@ img {
   display: block;
 }
 
-.flyout-open .header__quicklinks,
-.flyout-open .main,
-.flyout-open .footer {
+body.flyout-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+.flyout-open .header__quicklinks {
   display: none;
 }
 
+.flyout-open .main,
+.flyout-open .footer {
+  visibility: hidden;
+}
+
 .flyout__bar {
-  width: min(88vw, 1460px);
+  width: min(92.857vw, 1190px);
   margin: 0 auto;
-  padding: 3.7rem 0 3.15rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.flyout__brand {
-  display: inline-flex;
-  flex-direction: column;
-}
-
-.flyout__brand img {
-  width: 236px;
-  height: auto;
-}
-
-.flyout__brand span {
-  margin-top: 0.05rem;
-  color: var(--ap-blue);
-  font-family: "Radikal W01 Regular", Arial, sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.1;
-}
-
-.flyout__close {
-  color: var(--ap-red);
-  font-family: Arial, sans-serif;
-  font-size: 2.6rem;
-  line-height: 1;
+  padding: 3.7rem 0 5.5rem;
 }
 
 .flyout__inner {
-  width: min(88vw, 1460px);
+  width: min(92.857vw, 1190px);
   min-height: calc(100vh - 180px);
   margin: 0 auto;
   display: grid;
@@ -1956,24 +1952,10 @@ img {
   }
 
   .flyout__bar {
-    width: calc(100vw - 2rem);
-    padding: 1.7rem 0 1.1rem;
-  }
-
-  .flyout__brand img {
-    width: 170px;
-  }
-
-  .flyout__brand span {
-    font-size: 1rem;
-  }
-
-  .flyout__close {
-    font-size: 2.1rem;
+    padding: 1.7rem 0 4rem;
   }
 
   .flyout__inner {
-    width: calc(100vw - 2rem);
     min-height: calc(100vh - 116px);
     row-gap: 1.4rem;
     padding-bottom: 7.5rem;

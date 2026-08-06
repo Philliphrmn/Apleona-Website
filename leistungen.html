@@ -44,24 +44,7 @@
       </div>
 
       <div class="flyout" id="flyout" aria-hidden="true">
-        <div class="flyout__bar">
-          <a class="flyout__brand" href="index.html">
-            <img
-              src="https://apleona.at/typo3conf/ext/lin_template/Resources/Public/Images/logo.svg"
-              width="223"
-              height="33"
-              alt="Apleona - Logo"
-            />
-            <span>Realising potential</span>
-          </a>
-          <button
-            class="flyout__close"
-            type="button"
-            aria-label="Menü schließen"
-          >
-            ×
-          </button>
-        </div>
+        <div class="flyout__bar"></div>
 
         <div class="flyout__inner">
           <nav class="flyout__primary" aria-label="Hauptnavigation">
@@ -515,7 +498,6 @@
       const primaryItems = document.querySelectorAll("[data-menu-panel]");
       const serviceItems = document.querySelectorAll("[data-service-panel]");
       const servicePanels = document.querySelectorAll("[data-service-panel-content]");
-      const closeButton = document.querySelector(".flyout__close");
 
       function clearServicePanels() {
         serviceItems.forEach((item) => item.classList.remove("is-active"));
@@ -533,7 +515,11 @@
         servicePanels.forEach((panel) => panel.classList.toggle("is-active", panel.dataset.servicePanelContent === panelName));
       }
 
+      let scrollPosition = 0;
+
       function openFlyout(panelName = null) {
+        scrollPosition = window.scrollY;
+        document.body.style.top = `-${scrollPosition}px`;
         document.body.classList.add("flyout-open");
         toggle.setAttribute("aria-expanded", "true");
         flyout.setAttribute("aria-hidden", "false");
@@ -542,6 +528,8 @@
 
       function closeFlyout() {
         document.body.classList.remove("flyout-open");
+        document.body.style.top = "";
+        window.scrollTo(0, scrollPosition);
         toggle.setAttribute("aria-expanded", "false");
         flyout.setAttribute("aria-hidden", "true");
       }
@@ -550,7 +538,6 @@
       targets.forEach((target) => target.addEventListener("click", () => openFlyout(target.dataset.flyoutTarget)));
       primaryItems.forEach((item) => item.addEventListener("click", () => showMenuPanel(item.dataset.menuPanel)));
       serviceItems.forEach((item) => item.addEventListener("click", () => showServicePanel(item.dataset.servicePanel)));
-      closeButton.addEventListener("click", closeFlyout);
       document.addEventListener("keydown", (event) => event.key === "Escape" && closeFlyout());
 
       const heroVideos = document.querySelectorAll(".services-hero__video-stack video");
